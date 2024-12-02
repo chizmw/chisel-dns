@@ -11,11 +11,6 @@ locals {
   testfoo_type = "A"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.testfoo
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.testfoo_name}_${local.testfoo_type}"
-}
 resource "aws_route53_record" "testfoo" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.testfoo_name
@@ -35,11 +30,6 @@ locals {
   acmvalidations75d_type = "CNAME"
 }
 
-## import existing record
-import {
-  to = aws_route53_record._75d36f6b9a67a11e56d94c4c5ed61c07
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.acmvalidations75d_name}_${local.acmvalidations75d_type}"
-}
 resource "aws_route53_record" "_75d36f6b9a67a11e56d94c4c5ed61c07" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.acmvalidations75d_name
@@ -58,11 +48,6 @@ locals {
   acmvalidationscf3c_type = "CNAME"
 }
 
-## import existing record
-import {
-  to = aws_route53_record._cf3c5bef88b1a6129e48b067605982b3
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.acmvalidationscf3c_name}_${local.acmvalidationscf3c_type}"
-}
 resource "aws_route53_record" "_cf3c5bef88b1a6129e48b067605982b3" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.acmvalidationscf3c_name
@@ -81,11 +66,6 @@ locals {
   preview_type = "CNAME"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.preview
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.preview_name}_${local.preview_type}"
-}
 resource "aws_route53_record" "preview" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.preview_name
@@ -104,11 +84,6 @@ locals {
   dev_type = "CNAME"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.dev
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.dev_name}_${local.dev_type}"
-}
 resource "aws_route53_record" "dev" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.dev_name
@@ -127,11 +102,6 @@ locals {
   keybase_type = "TXT"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.keybase
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.keybase_name}_${local.keybase_type}"
-}
 resource "aws_route53_record" "keybase" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.keybase_name
@@ -150,11 +120,6 @@ locals {
   dmarc_type = "TXT"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.dmarc
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.dmarc_name}_${local.dmarc_type}"
-}
 resource "aws_route53_record" "dmarc" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.dmarc_name
@@ -173,11 +138,6 @@ locals {
   acmvalidationsbf36_type = "CNAME"
 }
 
-## import existing record
-import {
-  to = aws_route53_record._bf3660933515fb3a34b1e3b74e562e64
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.acmvalidationsbf36_name}_${local.acmvalidationsbf36_type}"
-}
 resource "aws_route53_record" "_bf3660933515fb3a34b1e3b74e562e64" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.acmvalidationsbf36_name
@@ -196,11 +156,6 @@ locals {
   secretcthulhu_TXT_type = "TXT"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.secretcthulhu_TXT
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.secretcthulhu_TXT_name}_${local.secretcthulhu_TXT_type}"
-}
 resource "aws_route53_record" "secretcthulhu_TXT" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.secretcthulhu_TXT_name
@@ -220,11 +175,6 @@ locals {
   secretcthulhu_A_type = "A"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.secretcthulhu_A
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.secretcthulhu_A_name}_${local.secretcthulhu_A_type}"
-}
 resource "aws_route53_record" "secretcthulhu_A" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.secretcthulhu_A_name
@@ -245,11 +195,6 @@ locals {
   secretcthulhu_SOA_type = "SOA"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.secretcthulhu_SOA
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.secretcthulhu_SOA_name}_${local.secretcthulhu_SOA_type}"
-}
 resource "aws_route53_record" "secretcthulhu_SOA" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.secretcthulhu_SOA_name
@@ -268,11 +213,6 @@ locals {
   secretcthulhu_MX_type = "MX"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.secretcthulhu_MX
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.secretcthulhu_MX_name}_${local.secretcthulhu_MX_type}"
-}
 resource "aws_route53_record" "secretcthulhu_MX" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.secretcthulhu_MX_name
@@ -295,11 +235,6 @@ locals {
   secretcthulhu_NS_type = "NS"
 }
 
-## import existing record
-import {
-  to = aws_route53_record.secretcthulhu_NS
-  id = "${data.aws_route53_zone.secret-cthulhu-com.zone_id}_${local.secretcthulhu_NS_name}_${local.secretcthulhu_NS_type}"
-}
 resource "aws_route53_record" "secretcthulhu_NS" {
   zone_id = data.aws_route53_zone.secret-cthulhu-com.zone_id
   name    = local.secretcthulhu_NS_name
