@@ -53,3 +53,31 @@ resource "aws_route53_record" "chizovation_SOA" {
     "ns-1303.awsdns-34.org. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400",
   ]
 }
+
+# chizovation.com (MX)
+
+locals {
+  chizovation_MX_name = "chizovation.com"
+  chizovation_MX_type = "MX"
+}
+
+## import the existing record
+import {
+  to = aws_route53_record.chizovation_MX
+  id = "${data.aws_route53_zone.chizovation-com.zone_id}_${local.chizovation_MX_name}_${local.chizovation_MX_type}"
+}
+
+resource "aws_route53_record" "chizovation_MX" {
+  zone_id = data.aws_route53_zone.chizovation-com.zone_id
+  name    = local.chizovation_MX_name
+  type    = local.chizovation_MX_type
+  ttl     = 300
+
+  records = [
+    "1 ASPMX.L.GOOGLE.COM.",
+    "10 ALT3.ASPMX.L.GOOGLE.COM.",
+    "10 ALT4.ASPMX.L.GOOGLE.COM.",
+    "5 ALT1.ASPMX.L.GOOGLE.COM.",
+    "5 ALT2.ASPMX.L.GOOGLE.COM.",
+  ]
+}
