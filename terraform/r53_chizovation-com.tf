@@ -81,3 +81,27 @@ resource "aws_route53_record" "chizovation_MX" {
     "5 ALT2.ASPMX.L.GOOGLE.COM.",
   ]
 }
+
+# chizovation.com (TXT)
+
+locals {
+  chizovation_TXT_name = "chizovation.com"
+  chizovation_TXT_type = "TXT"
+}
+
+## import the existing record
+import {
+  to = aws_route53_record.chizovation_TXT
+  id = "${data.aws_route53_zone.chizovation-com.zone_id}_${local.chizovation_TXT_name}_${local.chizovation_TXT_type}"
+}
+
+resource "aws_route53_record" "chizovation_TXT" {
+  zone_id = data.aws_route53_zone.chizovation-com.zone_id
+  name    = local.chizovation_TXT_name
+  type    = local.chizovation_TXT_type
+  ttl     = 300
+
+  records = [
+    "google-site-verification=dMJFjnrzH0kx3t4pxGfvcCTzQ_jPZPf6_-yAUxfqtJo",
+  ]
+}
