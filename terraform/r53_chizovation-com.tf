@@ -28,5 +28,28 @@ resource "aws_route53_record" "chizovation_NS" {
     "ns-327.awsdns-40.com.",
     "ns-653.awsdns-17.net.",
   ]
+}
 
+# chizovation.com (SOA)
+
+locals {
+  chizovation_SOA_name = "chizovation.com"
+  chizovation_SOA_type = "SOA"
+}
+
+## import the existing record
+import {
+  to = aws_route53_record.chizovation_SOA
+  id = "${data.aws_route53_zone.chizovation-com.zone_id}_${local.chizovation_SOA_name}_${local.chizovation_SOA_type}"
+}
+
+resource "aws_route53_record" "chizovation_SOA" {
+  zone_id = data.aws_route53_zone.chizovation-com.zone_id
+  name    = local.chizovation_SOA_name
+  type    = local.chizovation_SOA_type
+  ttl     = 900
+
+  records = [
+    "ns-1303.awsdns-34.org. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400",
+  ]
 }
